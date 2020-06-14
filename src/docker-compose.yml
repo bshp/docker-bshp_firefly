@@ -6,13 +6,19 @@ services:
     expose:
       - "8009"
     image: bshp/firefly-tomcat:latest
-    build: opt/tomcat/.
+    build:
+      context: opt/tomcat/
+      dockerfile: Dockerfile
+      args:
+        - JAVA_HOME=/opt/java-11-openjdk
+        - TOMCAT_VERSION=9.0.36
   httpd:
     volumes:
-      - ./etc/ssl:/opt/ssl
       - ./var/log/apache2:/var/log/apache2
     ports:
       - 0.0.0.0:80:80
       - 0.0.0.0:443:443
     image: bshp/firefly-httpd:latest
-    build: opt/httpd/.
+    build:
+      context: opt/httpd/
+      dockerfile: Dockerfile

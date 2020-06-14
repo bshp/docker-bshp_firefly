@@ -1,0 +1,18 @@
+version: '2'
+services:
+  tomcat:
+    volumes:
+      - ./var/log/tomcat:/opt/tomcat/logs
+    expose:
+      - "8009"
+    image: bshp/firefly-tomcat:latest
+    build: opt/tomcat/.
+  httpd:
+    volumes:
+      - ./etc/ssl:/opt/ssl
+      - ./var/log/apache2:/var/log/apache2
+    ports:
+      - 0.0.0.0:80:80
+      - 0.0.0.0:443:443
+    image: bshp/firefly-httpd:latest
+    build: opt/httpd/.

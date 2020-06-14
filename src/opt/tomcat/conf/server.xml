@@ -67,6 +67,10 @@
       <Host name="localhost"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">
             
+      <Valve className="org.apache.catalina.valves.ErrorReportValve"
+            showReport="false" 
+            showServerInfo="false"/>
+            
         <!-- Access Logs -->
         <Valve className="org.apache.catalina.valves.AccessLogValve"
                directory="logs"

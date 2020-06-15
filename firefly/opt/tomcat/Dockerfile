@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 MAINTAINER jason.everling@gmail.com
 
@@ -6,6 +6,9 @@ ARG JAVA_HOME
 ARG TOMCAT_VERSION
 
 ENV JAVA_HOME=$JAVA_HOME
+ENV TZ=America/North_Dakota/Center
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y --no-install-recommends wget ca-certificates
 

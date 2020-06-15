@@ -1,6 +1,10 @@
-FROM ubuntu:bionic
+FROM ubuntu:focal
 
 MAINTAINER jason.everling@gmail.com
+
+ENV TZ=America/North_Dakota/Center
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get install -y --no-install-recommends apache2 ca-certificates libapache2-mod-jk && service apache2 stop
 

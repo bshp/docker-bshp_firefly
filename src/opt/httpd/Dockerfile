@@ -10,6 +10,9 @@ COPY /etc/apache2/ /etc/apache2/
 COPY /etc/libapache2-mod-jk/ /etc/libapache2-mod-jk/
 COPY /etc/ssl/ /opt/ssl/
 
+RUN a2enmod rewrite
+RUN a2enmod ssl
+
 VOLUME ["/var/log/apache2"]
 
 EXPOSE 80 443

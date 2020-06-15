@@ -19,7 +19,17 @@ docker compose up -d
 Visit ``https://localhost/app`` in your browser  
   
 #### Notes  
-Apache mod_ssl is already configured for TLS v1.2+, secure ciphers only  
+Apache:  
+mod_ssl is already configured for TLS v1.2+,  
+secure ciphers only,  
+server tokens prod,  
+server signature off  
+  
+Tomcat:  
+Version removed from error pages and the likes  
+AJP secret set to default, change to whichever value  
+Logging reconfigured, more user friendly .logs for all  
+Async enabled  
   
 ##### Important Directories  
 Apache Config: ``/firefly/opt/httpd/``  

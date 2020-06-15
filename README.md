@@ -1,9 +1,9 @@
 #### Apache Tomcat with Apache Web Server, using mod_jk  
   
 ##### Important Directories  
+Certificates: ``/firefly/etc/ssl/``  
 Apache Config: ``/firefly/opt/httpd/``  
 Tomcat Config: ``/firefly/opt/tomcat/``  
-Certificates: ``/firefly/opt/httpd/etc/ssl/``  
 Logs: ``/firefly/var/log/``  
   
 #### Installation:  
@@ -12,7 +12,7 @@ Logs: ``/firefly/var/log/``
   Unzip and Copy to a directory on your server, ``/opt`` is recommended  
   
 ##### Step 2: Update Certificates  
-  Replace the dummy localhost certificates within ``/firefly/opt/httpd/etc/ssl/`` with your host certificate and key, named the same.  
+  Replace the dummy localhost certificates within ``/firefly/etc/ssl/`` with your host certificate and key, named the same.  
   
 ##### Step 3 (Optional): Customize Configs  
   Modify Apache and Tomcat configs if needed, located under ``/firefly/opt/httpd`` and ``/firefly/opt/tomcat``    

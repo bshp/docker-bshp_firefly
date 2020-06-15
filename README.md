@@ -1,5 +1,11 @@
 #### Apache Tomcat with Apache Web Server, using mod_jk  
   
+##### Important Directories  
+Apache Config: ``/firefly/opt/httpd/``  
+Tomcat Config: ``/firefly/opt/tomcat/``  
+Certificates: ``/firefly/opt/httpd/etc/ssl/``  
+Logs: ``/firefly/var/log/``  
+  
 #### Installation:  
 ##### Step 1: Download zip from releases
   [Latest Version](https://github.com/bshp/docker-bshp_firefly/archive/master.zip)  
@@ -31,9 +37,3 @@ AJP secret set to default, change to whichever value
 Logging reconfigured, more user friendly .logs for all  
 Async enabled  
   
-##### Important Directories  
-Apache Config: ``/firefly/opt/httpd/``  
-Tomcat Config: ``/firefly/opt/tomcat/``  
-Certificates: ``/firefly/opt/httpd/etc/ssl/``  
-Logs: ``/firefly/var/log/``  
-

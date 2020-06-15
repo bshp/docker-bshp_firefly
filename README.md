@@ -9,7 +9,7 @@ Logs: ``/firefly/var/log/``
 #### Installation:  
 ##### Step 1: Download zip from releases
   Download: [Latest Version](https://github.com/bshp/docker-bshp_firefly/archive/master.zip)  
-  Copy to a directory on your server, ``/opt`` is recommended  
+  Unzip and Copy to a directory on your server, ``/opt`` is recommended  
   
 ##### Step 2: Update Certificates  
   Replace the dummy localhost certificates within ``/firefly/opt/httpd/etc/ssl/`` with your host certificate and key, named the same.  

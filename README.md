@@ -3,13 +3,13 @@
 #### Installation:  
 ##### Step 1: Download zip from releases
   [Latest Version](https://github.com/bshp/docker-bshp_firefly/archive/master.zip)  
-  Copy to a directory on your server, /opt is recommended  
+  Copy to a directory on your server, ``/opt`` is recommended  
   
 ##### Step 2: Update Certificates  
-  Replace the dummy localhost certificates within /firefly/opt/httpd/etc/ssl/ with your host certificate and key, named the same.  
+  Replace the dummy localhost certificates within ``/firefly/opt/httpd/etc/ssl/`` with your host certificate and key, named the same.  
   
 ##### Step 3 (Optional): Customize Configs  
-  Modify Apache and Tomcat configs if needed, located under /firefly/opt/httpd and /firefly/opt/tomcat    
+  Modify Apache and Tomcat configs if needed, located under ``/firefly/opt/httpd`` and ``/firefly/opt/tomcat``    
   
 ##### Step 4: Launch Container  
 ``

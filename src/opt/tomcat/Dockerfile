@@ -15,7 +15,7 @@ tar xzf /opt/tomcat.tgz -C /opt && mv /opt/apache-tomcat-$TOMCAT_VERSION /opt/to
 RUN wget --quiet --no-cookies https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz -O /opt/java-11-openjdk.tgz && \
 tar xzf /opt/java-11-openjdk.tgz -C /opt && mv /opt/amazon-corretto-* /opt/java-11-openjdk
 
-RUN rm /opt/tomcat.tgz && rm /opt/java-11-openjdk.tgz && rm -rf /opt/tomcat/webapps/examples && rm -rf /opt/tomcat/webapps/manager && rm -rf /opt/tomcat/webapps/host-manager && rm -rf /opt/tomcat/webapps/docs
+RUN rm /opt/tomcat.tgz && rm /opt/java-11-openjdk.tgz && rm -rf /opt/tomcat/webapps/examples && rm -rf /opt/tomcat/webapps/manager && rm -rf /opt/tomcat/webapps/host-manager && rm -rf /opt/tomcat/webapps/docs && rm -rf /opt/tomcat/webapps/ROOT
 
 COPY /conf/ /opt/tomcat/conf/
 COPY /webapps/ /opt/tomcat/webapps/

@@ -7,8 +7,8 @@ services:
       - "8009"
     image: bshp/firefly-tomcat:latest
     build:
-      context: opt/tomcat/
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: opt/tomcat/Dockerfile
       args:
         - JAVA_HOME=/opt/java-11-openjdk
         - TOMCAT_VERSION=9.0.36
@@ -20,5 +20,5 @@ services:
       - 0.0.0.0:443:443
     image: bshp/firefly-httpd:latest
     build:
-      context: opt/httpd/
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: opt/httpd/Dockerfile

@@ -17,9 +17,9 @@ tar xzf /opt/java-11-openjdk.tgz -C /opt && mv /opt/amazon-corretto-* /opt/java-
 
 RUN rm /opt/tomcat.tgz && rm /opt/java-11-openjdk.tgz && rm -rf /opt/tomcat/webapps/examples && rm -rf /opt/tomcat/webapps/manager && rm -rf /opt/tomcat/webapps/host-manager && rm -rf /opt/tomcat/webapps/docs && rm -rf /opt/tomcat/webapps/ROOT
 
-COPY /conf/ /opt/tomcat/conf/
-COPY /webapps/ /opt/tomcat/webapps/
-COPY entrypoint.sh /opt/entrypoint.sh
+COPY opt/tomcat/conf/ /opt/tomcat/conf/
+COPY opt/tomcat/webapps/ /opt/tomcat/webapps/
+COPY opt/tomcat/entrypoint.sh /opt/entrypoint.sh
 
 ENV CATALINA_HOME /opt/tomcat
 ENV PATH $PATH:$CATALINA_HOME/bin

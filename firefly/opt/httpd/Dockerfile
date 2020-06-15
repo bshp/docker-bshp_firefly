@@ -6,9 +6,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends apache2 ca-cert
 
 RUN mkdir /opt/ssl && chown -R www-data:www-data /opt/ssl
 
-COPY /etc/apache2/ /etc/apache2/
-COPY /etc/libapache2-mod-jk/ /etc/libapache2-mod-jk/
-COPY /etc/ssl/ /etc/ssl/
+COPY opt/httpd/etc/apache2/ /etc/apache2/
+COPY opt/httpd/etc/libapache2-mod-jk/ /etc/libapache2-mod-jk/
+COPY etc/ssl/ /etc/ssl/
 
 RUN a2enmod rewrite
 RUN a2enmod ssl

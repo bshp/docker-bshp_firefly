@@ -10,7 +10,7 @@ services:
       context: .
       dockerfile: opt/tomcat/Dockerfile
       args:
-        - JAVA_HOME=/opt/java-11-openjdk
+        - JAVA_HOME=/opt/java-11-openjdk #java-8-openjdk or java-11-openjdk
         - TOMCAT_VERSION=9.0.36
   httpd:
     volumes:

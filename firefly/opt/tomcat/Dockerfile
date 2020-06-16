@@ -6,6 +6,8 @@ ARG JAVA_HOME
 ARG TOMCAT_VERSION
 
 ENV JAVA_HOME=$JAVA_HOME
+ENV CATALINA_HOME=/opt/tomcat
+ENV PATH=$PATH:$CATALINA_HOME/bin
 ENV TZ=America/North_Dakota/Center
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -28,9 +30,6 @@ RUN rm /opt/tomcat.tgz && rm /opt/java-11-openjdk.tgz && rm -rf /opt/tomcat/weba
 COPY opt/tomcat/conf/ /opt/tomcat/conf/
 COPY opt/tomcat/webapps/ /opt/tomcat/webapps/
 COPY opt/tomcat/entrypoint.sh /opt/entrypoint.sh
-
-ENV CATALINA_HOME /opt/tomcat
-ENV PATH $PATH:$CATALINA_HOME/bin
 
 EXPOSE 8009
 

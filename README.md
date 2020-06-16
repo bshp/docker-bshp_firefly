@@ -14,10 +14,13 @@ Logs: ``/firefly/var/log/``
 ##### Step 2: Update Certificates  
   Replace the dummy localhost certificates within ``/firefly/etc/ssl/`` with your host certificate and key, named the same.  
   
-##### Step 3 (Optional): Customize Configs  
+##### Step 3: Add your Application  
+  Replace the sample app.war within ``/firefly/opt/tomcat/webapps/`` with your WAR, it does not need to be named app.war, anything you like.  
+  
+##### Step 4 (Optional): Customize Configs  
   Modify Apache and Tomcat configs if needed, located under ``/firefly/opt/httpd`` and ``/firefly/opt/tomcat``    
   
-##### Step 4: Launch Container  
+##### Step 5: Launch Container  
 ``
 docker compose up -d
 ``  

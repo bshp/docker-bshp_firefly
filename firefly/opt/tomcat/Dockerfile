@@ -4,15 +4,16 @@ MAINTAINER jason.everling@gmail.com
 
 ARG JAVA_HOME
 ARG TOMCAT_VERSION
+ARG TIMEZONE
 
 ENV JAVA_HOME=$JAVA_HOME
 ENV CATALINA_HOME=/opt/tomcat
 ENV PATH=$PATH:$CATALINA_HOME/bin
-ENV TZ=America/North_Dakota/Center
+ENV TZ=$TIMEZONE
 
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-RUN apt-get update && \
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone && \
+    apt-get update && \
     apt-get install -y --no-install-recommends wget ca-certificates
 
 RUN wget \

@@ -2,11 +2,13 @@ FROM ubuntu:focal
 
 MAINTAINER jason.everling@gmail.com
 
-ENV TZ=America/North_Dakota/Center
+ARG TIMEZONE
 
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ENV TZ=$TIMEZONE
 
-RUN apt-get update && \
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone && \
+    apt-get update && \
     apt-get install -y --no-install-recommends \
     apache2 \
     ca-certificates \

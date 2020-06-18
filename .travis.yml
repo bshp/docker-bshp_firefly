@@ -1,9 +1,0 @@
-language: java
-
-services:
-  - docker
-
-before_install:
-  - cd firefly
-
-script: docker build --tag bshp/firefly:latest .

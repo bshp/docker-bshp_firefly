@@ -29,7 +29,7 @@ RUN wget \
 
 COPY bin/setjava.sh /opt/setjava.sh
 
-RUN /opt/setjava.sh
+RUN chmod 0755 /opt/setjava.sh && /opt/setjava.sh
 
 RUN rm /opt/tomcat.tgz && \
     rm -rf /opt/tomcat/webapps/examples && \

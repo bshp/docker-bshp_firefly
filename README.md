@@ -1,24 +1,24 @@
 #### Apache Tomcat with Apache Web Server, using mod_jk  
   
 ##### Important Directories  
-Certificates: ``/firefly/etc/ssl/``  
-Apache Config: ``/firefly/opt/httpd/``  
-Tomcat Config: ``/firefly/opt/tomcat/``  
-Logs: ``/firefly/var/log/``  
+Apache Config: ``/etc/apache2/``  
+Tomcat Config: ``/opt/tomcat/``  
+Certificates: ``/etc/ssl/``  
+Logs: ``/var/log/``  
   
 #### Installation:  
 ##### Step 1: Download zip from releases
-  Download: [Latest Version](https://github.com/bshp/docker-bshp_firefly/archive/master.zip)  
+  Download: [Latest Version](https://github.com/bshp/docker-firefly/archive/master.zip)  
   Unzip and Copy to a directory on your server, ``/opt`` is recommended  
   
 ##### Step 2: Update Certificates  
-  Replace the dummy localhost certificates within ``/firefly/etc/ssl/`` with your host certificate and key, named the same.  
+  Replace the dummy localhost certificates within ``/etc/ssl/`` with your host certificate and key, named the same.  
   
 ##### Step 3: Add your Application  
-  Replace the sample app.war within ``/firefly/opt/tomcat/webapps/`` with your WAR, it does not need to be named app.war, anything you like.  
+  Replace the sample app.war within ``/opt/tomcat/webapps/`` with your WAR, it does not need to be named app.war, anything you like.  
   
 ##### Step 4 (Optional): Customize Configs  
-  Modify Apache and Tomcat configs if needed, located under ``/firefly/opt/httpd`` and ``/firefly/opt/tomcat``    
+  Modify Apache and Tomcat configs if needed, located under ``/etc/apache2`` and ``/opt/tomcat``    
   
 ##### Step 5: Launch Container  
 ``

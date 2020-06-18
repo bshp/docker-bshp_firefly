@@ -6,4 +6,4 @@ services:
 before_install:
   - cd firefly
 
-script: docker-compose build
+script: docker build --tag bshp/firefly:latest .

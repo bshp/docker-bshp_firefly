@@ -2,12 +2,13 @@ FROM ubuntu:focal
 
 MAINTAINER jason.everling@gmail.com
 
-
-ARG TOMCAT_VERSION=9.0.36
+ARG JAVA_VERSION
+ARG TOMCAT_VERSION
 ARG TZ=America/North_Dakota/Center
-ENV JAVA_HOME=/opt/java-11-openjdk
+
+ENV JAVA_HOME=/opt/java-$JAVA_VERSION-openjdk
 ENV CATALINA_HOME=/opt/tomcat
-ENV PATH=$PATH:$CATALINA_HOME/bin
+ENV PATH=$PATH:$CATALINA_HOME/bin:$JAVA_HOME/bin
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone && \
@@ -26,24 +27,11 @@ RUN wget \
     tar xzf /opt/tomcat.tgz -C /opt && \
     mv /opt/apache-tomcat-$TOMCAT_VERSION /opt/tomcat
 
-# Java 8
-RUN wget \
-    --quiet \
-    --no-cookies \
-    https://corretto.aws/downloads/latest/amazon-corretto-8-aarch64-linux-jdk.tar.gz -O /opt/java-8-openjdk.tgz && \
-    tar xzf /opt/java-8-openjdk.tgz -C /opt && \
-    mv /opt/amazon-corretto-* /opt/java-8-openjdk
+COPY bin/setjava.sh /opt/setjava.sh
 
-# Java 11
-RUN wget \
-    --quiet \
-    --no-cookies \
-    https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz -O /opt/java-11-openjdk.tgz && \
-    tar xzf /opt/java-11-openjdk.tgz -C /opt && \
-    mv /opt/amazon-corretto-* /opt/java-11-openjdk
+RUN /opt/setjava.sh
 
 RUN rm /opt/tomcat.tgz && \
-    rm /opt/java-11-openjdk.tgz && \
     rm -rf /opt/tomcat/webapps/examples && \
     rm -rf /opt/tomcat/webapps/manager && \
     rm -rf /opt/tomcat/webapps/host-manager && \
@@ -64,6 +52,6 @@ EXPOSE 80 443 8009
 WORKDIR /opt/tomcat
 
 VOLUME ["/opt/tomcat/logs"]
-VOLUME ["/var/log/apache2"]
+VOLUME ["/var/log"]
 
 ENTRYPOINT ["/opt/entrypoint.sh"]

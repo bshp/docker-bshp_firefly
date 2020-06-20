@@ -47,7 +47,7 @@ COPY opt/tomcat/webapps/ /opt/tomcat/webapps/
 
 RUN a2enmod rewrite ssl
 
-EXPOSE 80 443 8009
+EXPOSE 80 443
 
 WORKDIR /opt/tomcat
 

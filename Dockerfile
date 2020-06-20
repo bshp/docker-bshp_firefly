@@ -23,9 +23,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 RUN wget \
     --quiet \
     --no-cookies \
-    http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-9/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz -O /opt/tomcat.tgz && \
+    https://repo1.maven.org/maven2/org/apache/tomcat/tomcat/$TOMCAT_VERSION/tomcat-$TOMCAT_VERSION.tar.gz -O /opt/tomcat.tgz && \
     tar xzf /opt/tomcat.tgz -C /opt && \
-    mv /opt/apache-tomcat-$TOMCAT_VERSION /opt/tomcat
+    mv /opt/tomcat-$TOMCAT_VERSION.tar.gz /opt/tomcat
 
 COPY bin/setjava.sh /opt/setjava.sh
 

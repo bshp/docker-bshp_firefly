@@ -25,7 +25,7 @@ RUN wget \
     --no-cookies \
     https://downloads.apache.org/tomcat/tomcat-9/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz -O /opt/tomcat.tgz && \
     tar xzf /opt/tomcat.tgz -C /opt && \
-    mv /opt/apache-tomcat-$TOMCAT_VERSION /opt/tomcat/
+    mv /opt/apache-tomcat-$TOMCAT_VERSION /opt/tomcat
 
 COPY bin/setjava.sh /opt/setjava.sh
 

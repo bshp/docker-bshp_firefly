@@ -25,7 +25,7 @@ RUN wget \
     --no-cookies \
     https://repo1.maven.org/maven2/org/apache/tomcat/tomcat/$TOMCAT_VERSION/tomcat-$TOMCAT_VERSION.tar.gz -O /opt/tomcat.tgz && \
     tar xzf /opt/tomcat.tgz -C /opt && \
-    mv /opt/tomcat-$TOMCAT_VERSION.tar.gz /opt/tomcat
+    mv /opt/apache-tomcat-$TOMCAT_VERSION /opt/tomcat
 
 COPY bin/setjava.sh /opt/setjava.sh
 

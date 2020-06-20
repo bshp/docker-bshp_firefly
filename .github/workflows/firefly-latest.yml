@@ -10,4 +10,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the image
-      run: docker build --tag bshp/firefly:latest ./firefly/ --build-arg JAVA_VERSION=11 --build-arg TOMCAT_VERSION=9.0.36
+      run: docker build --tag bshp/firefly:latest . --build-arg JAVA_VERSION=11 --build-arg TOMCAT_VERSION=9.0.36

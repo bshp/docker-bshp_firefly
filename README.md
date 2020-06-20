@@ -29,6 +29,8 @@ docker run \
   --volume /opt/container/logs/apache2:/var/log/apache2 \
   --volume /opt/container/logs/tomcat:/opt/tomcat/logs \
   bshp/firefly:latest
+  JAVA_VERSION=11 \
+  TOMCAT_VERSION=9.0.36
 ````  
   
 Visit ``https://localhost/app`` in your browser  

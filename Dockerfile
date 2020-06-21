@@ -42,8 +42,7 @@ RUN wget \
     https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz -O /opt/java-11-openjdk.tgz && \
     tar xzf /opt/java-11-openjdk.tgz -C /opt && \
     mv /opt/amazon-corretto-* /opt/java-11-openjdk && \
-    rm /opt/java-11-openjdk.tgz && \
-    echo "Using Tomcat Version:" $TOMCAT "with JAVA_HOME set to:" $JAVA_HOME
+    rm /opt/java-11-openjdk.tgz
 
 RUN rm /opt/tomcat.tgz && \
     rm -rf /opt/tomcat/webapps/examples && \
@@ -60,6 +59,8 @@ COPY opt/tomcat/conf/ /opt/tomcat/conf/
 COPY opt/tomcat/webapps/ /opt/tomcat/webapps/
 
 RUN a2enmod rewrite ssl
+
+RUN echo "Using Tomcat Version:" $TOMCAT "with JAVA_HOME set to:" $JAVA_HOME
 
 EXPOSE 80 443
 

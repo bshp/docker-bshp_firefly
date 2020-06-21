@@ -6,7 +6,9 @@ ARG JAVA_VERSION
 ARG TOMCAT_VERSION
 ARG TZ=America/North_Dakota/Center
 
-ENV JAVA_HOME=/opt/java-$JAVA_VERSION-openjdk
+ENV TOMCAT=$TOMCAT_VERSION
+ENV JAVA=$JAVA_VERSION
+ENV JAVA_HOME=/opt/java-$JAVA-openjdk
 ENV CATALINA_HOME=/opt/tomcat
 ENV PATH=$PATH:$CATALINA_HOME/bin:$JAVA_HOME/bin
 
@@ -23,13 +25,25 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 RUN wget \
     --quiet \
     --no-cookies \
-    https://repo1.maven.org/maven2/org/apache/tomcat/tomcat/$TOMCAT_VERSION/tomcat-$TOMCAT_VERSION.tar.gz -O /opt/tomcat.tgz && \
+    https://repo1.maven.org/maven2/org/apache/tomcat/tomcat/$TOMCAT/tomcat-$TOMCAT.tar.gz -O /opt/tomcat.tgz && \
     tar xzf /opt/tomcat.tgz -C /opt && \
-    mv /opt/apache-tomcat-$TOMCAT_VERSION /opt/tomcat
+    mv /opt/apache-tomcat-$TOMCAT /opt/tomcat
 
-COPY bin/setjava.sh /opt/setjava.sh
-
-RUN chmod 0755 /opt/setjava.sh && /opt/setjava.sh
+RUN wget \
+    --quiet \
+    --no-cookies \
+    https://corretto.aws/downloads/latest/amazon-corretto-8-aarch64-linux-jdk.tar.gz -O /opt/java-8-openjdk.tgz && \
+    tar xzf /opt/java-8-openjdk.tgz -C /opt && \
+    mv /opt/amazon-corretto-* /opt/java-8-openjdk && \
+    rm /opt/java-8-openjdk.tgz && \
+    wget \
+    --quiet \
+    --no-cookies \
+    https://corretto.aws/downloads/latest/amazon-corretto-11-x64-linux-jdk.tar.gz -O /opt/java-11-openjdk.tgz && \
+    tar xzf /opt/java-11-openjdk.tgz -C /opt && \
+    mv /opt/amazon-corretto-* /opt/java-11-openjdk && \
+    rm /opt/java-11-openjdk.tgz && \
+    echo "Using Tomcat Version:" $TOMCAT "with JAVA_HOME set to:" $JAVA_HOME
 
 RUN rm /opt/tomcat.tgz && \
     rm -rf /opt/tomcat/webapps/examples && \

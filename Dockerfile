@@ -27,11 +27,16 @@ RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     service apache2 stop
 
 # Landscape, Ensure you also uncomment the args and adjust
-#COPY bin/landscape.sh /opt/landscape.sh
 #RUN apt update && \
 #    apt-get install -y --no-install-recommends \
 #    landscape-client && \
-#    chmod 0755 /opt/landscape.sh && /opt/landscape.sh
+#    landscape-config \
+#    --computer-title "${hostname^^}" \
+#    --account-name standalone \
+#    -p ${LANDSCAPE_TOKEN} \
+#    --url ${LANDSCAPE_URL}/message-system \
+#    --ping-url ${LANDSCAPE_URL}/ping && \
+#    echo "Landscape is reporting to " ${LANDSCAPE_URL}
 
 RUN wget \
     --quiet \
